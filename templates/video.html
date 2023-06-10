@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Выберите видео для загрузки</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+        }
+        h1 {
+            text-align: center;
+            color: white; /* Изменение цвета текста на белый */
+        }
+        table {
+            margin: 20px auto;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        table td:first-child {
+            font-weight: bold;
+        }
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #loading {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #loading p {
+            margin-bottom: 10px;
+            color: white; /* Изменение цвета текста на белый */
+        }
+        #loading img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Выберите видео для загрузки</h1>
+    <table class="table">
+        <tr>
+            <td>Объект:</td>
+            <td>{{ object }}</td>
+        </tr>
+        <tr>
+            <td>Корпус:</td>
+            <td>{{ building }}</td>
+        </tr>
+        <tr>
+            <td>Подъезд:</td>
+            <td>{{ entrance }}</td>
+        </tr>
+        <tr>
+            <td>Этаж:</td>
+            <td>{{ floor }}</td>
+        </tr>
+        <tr>
+            <td>Квартира:</td>
+            <td>{{ apartment }}</td>
+        </tr>
+    </table>
+    <form id="upload-form" style="display: none;" action="/upload/file" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="video/mp4" style="display: none;">
+    </form>
+    <div class="centered">
+        <button class="btn btn-primary" onclick="chooseVideo()">Выбрать видео</button>
+    </div>
+    <div id="loading" style="display: none;">
+        <p>Выполняется загрузка... и предикт модели (это может занять время, так как сервер только на CPU)</p>
+        <img src="/static/loading.gif" alt="Загрузка">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function chooseVideo() {
+            document.querySelector('input[type="file"]').click();
+        }
+
+        // Показывать анимацию загрузки при выборе файла и отправке формы
+        document.querySelector('input[type="file"]').addEventListener("change", function() {
+            document.getElementById("loading").style.display = "block";
+            document.getElementById("upload-form").submit();
+        });
+    </script>
+</body>
+</html>

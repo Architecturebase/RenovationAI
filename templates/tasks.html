@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задачи по обходу</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .task-menu {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 999;
+        }
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .task-list li {
+            padding-left: 20px;
+            border-bottom: 1px solid #dee2e6;
+            cursor: pointer;
+        }
+        .sub-list {
+            display: none;
+            list-style-type: none;
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+        .sub-list li {
+            padding-left: 20px;
+            border-bottom: none;
+            cursor: pointer;
+        }
+        .sub-sub-list li {
+            padding-left: 20px;
+            cursor: default;
+        }
+        .sub-sub-list li:last-child {
+            border-bottom: 1px solid #dee2e6;
+        }
+        .form-check {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="task-menu">
+        <button id="taskMenuButton" class="btn btn-primary">Задачи по обходу</button>
+        <ul id="taskMenuList" class="task-list">
+            <li class="menu-item">
+                <strong>Название объекта</strong>
+                <ul class="sub-list">
+                    <li class="menu-item">
+                        <strong>Корпус 1</strong>
+                        <ul class="sub-list">
+                            <li class="menu-item">
+                                <strong>Подъезд 1</strong>
+                                <ul class="sub-list">
+                                    <li>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="apartment1" name="apartment1" value="apartment1" class="form-check-input">
+                                            <label for="apartment1" class="form-check-label">Квартира 1</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="apartment2" name="apartment2" value="apartment2" class="form-check-input">
+                                            <label for="apartment2" class="form-check-label">Квартира 2</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item">
+                                <strong>Подъезд 2</strong>
+                                <ul class="sub-list">
+                                    <li>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="apartment3" name="apartment3" value="apartment3" class="form-check-input">
+                                            <label for="apartment3" class="form-check-label">Квартира 3</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="apartment4" name="apartment4" value="apartment4" class="form-check-input">
+                                            <label for="apartment4" class="form-check-label">Квартира 4</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <strong>Корпус 2</strong>
+                        <ul class="sub-list">
+                            <li class="menu-item">
+                                <strong>Подъезд 1</strong>
+                                <ul class="sub-list">
+                                    <li>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="apartment5" name="apartment5" value="apartment5" class="form-check-input">
+                                            <label for="apartment5" class="form-check-label">Квартира 5</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#taskMenuButton").click(function() {
+                $("#taskMenuList").toggle();
+            });
+            $(".menu-item").click(function(e) {
+                e.stopPropagation();
+                $(this).children(".sub-list").toggle();
+            });
+        });
+    </script>
+</body>
+</html>

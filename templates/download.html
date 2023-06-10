@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Скачать обработанные данные</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff; /* Абсолютно белый цвет фона */
+            text-align: center; /* Добавлено для выравнивания текста по центру */
+        }
+        h1 {
+            color: #333;
+            margin-top: 100px;
+            text-align: center; /* Добавлено для выравнивания текста по центру */
+        }
+        .sub-heading {
+            margin-top: 40px;
+        }
+        .sub-heading h2 {
+            margin-bottom: 10px;
+        }
+        .sub-heading img {
+            width: auto;
+            height: auto;
+            margin-right: 10px;
+        }
+        .download-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff; /* Синий цвет */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+            background-color: #0056b3; /* Более темный синий цвет при наведении */
+        }
+        .button-container {
+            text-align: center;
+        }
+        .summary-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff; /* Синий цвет */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .summary-button:hover {
+            background-color: #0056b3; /* Более темный синий цвет при наведении */
+        }
+    </style>
+</head>
+<body>
+    <h1>Скачать обработанные видео</h1>
+    <div class="button-container">
+        <a href="/file/download" class="download-button">Скачать видео</a>
+        <a href="/" class="download-button">Вернуться на главную</a>
+    </div>
+
+    <h1>Данные Score-карт для выбранной квартиры</h1>
+
+    <div class="sub-heading">
+        <h2>Данные по отделке</h2>
+        <img src="/upload/score_maps" alt="Фото 1">
+        <a href="/data/download/csv" class="download-button">Скачать данные</a>
+    </div>
+
+    <a href="/summary" class="summary-button">Получить сводную статистику</a>
+</body>
+</html>
